@@ -12,6 +12,7 @@ model User {
   email      String       
   password   String
   username   String
+  contents   Content[]
 }
 
 enum ContentEnum {
@@ -27,4 +28,6 @@ model Content {
   description  String
   link         String
   type         ContentEnum
+  userId       Int
+  user         User      @relation(fields: [userId], references: [id])
 }
